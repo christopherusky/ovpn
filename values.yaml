@@ -13,7 +13,8 @@ updateStrategy: {}
 imagePullSecretName:
 
 image:
-  repository: jfelten/openvpn-docker
+  #repository: jfelten/openvpn-docker
+  repository: christopherusky/ovpn
   tag: 1.1.0
   pullPolicy: IfNotPresent
 service:
@@ -102,7 +103,8 @@ openvpn:
   # Use/generate a ta.key (https://openvpn.net/community-resources/hardening-openvpn-security/)
   taKey: false
   # Override default cipher
-  # cipher: AES-256-CBC
+  cipher: AES-256-GCM
+  # AES 256 in Galois Counter Mode (AES256-GCM) and CHACHA20-POLY1305 are preferred.
   # Lines appended to the end of the server configuration file
   # serverConf: |
   #  max-clients 100
